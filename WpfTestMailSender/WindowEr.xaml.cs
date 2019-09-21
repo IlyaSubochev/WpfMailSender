@@ -14,9 +14,7 @@ using System.Windows.Shapes;
 
 namespace WpfTestMailSender
 {
-    /// <summary>
-    /// Логика взаимодействия для Window1.xaml
-    /// </summary>
+
     public partial class WindowEr : Window
     {
         public WindowEr()
