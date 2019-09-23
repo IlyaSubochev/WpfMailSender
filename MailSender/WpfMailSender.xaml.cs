@@ -24,5 +24,10 @@ namespace MailSender
         {
             InitializeComponent();
         }
+
+        private void MiClose_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
