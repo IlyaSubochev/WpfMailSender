@@ -6,6 +6,7 @@
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         xmlns:data="clr-namespace:MailSender.lib.Data;assembly=MailSender.lib"
         xmlns:entityes="clr-namespace:MailSender.lib.Entityes;assembly=MailSender.lib"
+        xmlns:db="clr-namespace:MailSender.lib.Data.Linq2SQL;assembly=MailSender.lib"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
@@ -30,6 +31,9 @@
         <TabControl>
             <TabItem Header="Рассылка">
                 <Grid>
+                    <Grid.Resources>
+                        <db:MailSenderDBDataContext x:Key="DataBase"/>
+                    </Grid.Resources>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto">
                         </RowDefinition>
@@ -59,7 +63,7 @@
                                             <TextBlock Text="{Binding Name}"/>
                                             <TextBlock Text="{Binding Adress}" Margin="3,0,0,0" Opacity="0.6"
                                                        ToolTip="{Binding Port}"/>
-                                            
+
                                         </StackPanel>
                                     </DataTemplate>
                                 </ComboBox.ItemTemplate>
@@ -100,11 +104,13 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid AutoGenerateColumns="False" Margin="0,68,0,-293">
+                    <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding Recepients, Source={StaticResource DataBase}}" Margin="0,63,0,-169"
+                              GridLinesVisibility="Vertical" AlternatingRowBackground="LightGray"
+                              IsReadOnly="True" HeadersVisibility="Column">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID"/>
-                            <DataGridTextColumn Header="Имя"/>
-                            <DataGridTextColumn Header="Адрес" Width="*"/>
+                            <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
+                            <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Adress}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>

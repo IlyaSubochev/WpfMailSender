@@ -29,5 +29,7 @@ namespace MailSender
         {
             this.Close();
         }
+
+       
     }
 }
