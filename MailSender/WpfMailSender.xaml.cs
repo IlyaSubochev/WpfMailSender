@@ -30,6 +30,16 @@ namespace MailSender
             this.Close();
         }
 
-       
+
+        private void TabItemSwitcher_OnLeftButtonClick(object sender, EventArgs e)
+        {
+           
+        }
+
+
+        private void TabItemSwitcher_OnRightButtonClick(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

@@ -7,6 +7,7 @@
         xmlns:data="clr-namespace:MailSender.lib.Data;assembly=MailSender.lib"
         xmlns:entityes="clr-namespace:MailSender.lib.Entityes;assembly=MailSender.lib"
         xmlns:db="clr-namespace:MailSender.lib.Data.Linq2SQL;assembly=MailSender.lib"
+        xmlns:controls="clr-namespace:MailSender.Controls"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
@@ -26,9 +27,14 @@
             </MenuItem>
         </Menu>
         <StatusBar DockPanel.Dock="Bottom">
-            <TextBlock> Готов к труду и обороне</TextBlock>
+            <StatusBarItem >
+                <controls:TabItemSwitcher Width="100" LeftButtonClick="TabItemSwitcher_OnLeftButtonClick"
+                                          RightButtonClick="TabItemSwitcher_OnRightButtonClick"/>
+            </StatusBarItem>
+            <TextBlock > Готов к труду и обороне</TextBlock>
+            
         </StatusBar>
-        <TabControl>
+        <TabControl Name="MainTabControl">
             <TabItem Header="Рассылка">
                 <Grid>
                     <Grid.Resources>
@@ -104,7 +110,7 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding Recepients, Source={StaticResource DataBase}}" Margin="0,63,0,-169"
+                    <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding Recepients, Source={StaticResource DataBase}}" Margin="0,63,0,-282"
                               GridLinesVisibility="Vertical" AlternatingRowBackground="LightGray"
                               IsReadOnly="True" HeadersVisibility="Column">
                         <DataGrid.Columns>
