@@ -14,13 +14,16 @@ namespace WpfTestMailSender
         
         public WpfMailSender()
         {
-            InitializeComponent();           
+            InitializeComponent();
+           
         }
         private void btnSendEmail_Click( object sender, RoutedEventArgs e)
         {
             EmailSendServiceClass emailSend = new EmailSendServiceClass();
             emailSend.SendMessages(txtHeader.Text, txtBody.Text);
+
         }
+
         private void BtnTest_Click(object sender, RoutedEventArgs e)
         {
             WindowEr sew = new WindowEr();
