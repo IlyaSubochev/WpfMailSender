@@ -47,7 +47,7 @@
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
-                            <Label MinWidth="85">Отправители</Label>
+                            <!--<Label MinWidth="85">Отправители</Label>
                             <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Senders}"
                                       DisplayMemberPath="Name" SelectedIndex="0"/>
                             <Button ToolTip="Создать">
@@ -58,11 +58,17 @@
                             </Button>
                             <Button ToolTip="Удалить">
                                 <Image Source="Media/remove.png" Height="18"/>
-                            </Button>
-                        </ToolBar>
+                            </Button>-->
+                            <controls:ListController 
+                                PanelName="Отправители"
+                                ViewPropertyPath="Name"
+                                Items="{x:Static data:TestData.Senders}"/>
+                            
 
+                        </ToolBar>
+                       
                         <ToolBar Band="1">
-                            <Label MinWidth="85">Сервера</Label>
+                            <!--<Label MinWidth="85">Сервера</Label>
                             <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Servers}" SelectedIndex="0">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="{x:Type entityes:Server }">
@@ -86,7 +92,21 @@
                             <Button ToolTip="Удалить">
                                 <fa:ImageAwesome Height="18" Icon="TrashOutline" Foreground="RosyBrown">
                                 </fa:ImageAwesome>
-                            </Button>
+                            </Button>-->
+                            <controls:ListController 
+                                PanelName="Сервера"
+                                ViewPropertyPath="Name"
+                                Items="{x:Static data:TestData.Servers}">
+                            <controls:ListController.ItemTemplate>
+                                <DataTemplate DataType="{x:Type entityes:Server }">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Adress}" Margin="3,0,0,0" Opacity="0.6"
+                                                       ToolTip="{Binding Port}"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                            </controls:ListController.ItemTemplate>
+                            </controls:ListController>
                         </ToolBar>
                         <ToolBar>
                             <Label MinWidth="85">Перейти в планировщик</Label>

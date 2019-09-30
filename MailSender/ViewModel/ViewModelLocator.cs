@@ -3,36 +3,25 @@ using GalaSoft.MvvmLight.Ioc;
 using CommonServiceLocator;
 using MailSender.lib.Services;
 using MailSender.lib.Data.Linq2SQL;
+using MailSender.lib.Services.InMemory;
+using MailSender.lib.Services.Interfaces;
 
 namespace MailSender.ViewModel
 {
-    /// <summary>
-    /// This class contains static references to all the view models in the
-    /// application and provides an entry point for the bindings.
-    /// </summary>
+    
     public class ViewModelLocator
     {
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
+       
         public ViewModelLocator()
         {
             var services = SimpleIoc.Default;
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DesignDataService>();
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view services and models
-            ////    SimpleIoc.Default.Register<IDataService, DataService>();
-            ////}
+
 
             services.Register<MainWindowViewModel>();
-            services.Register<RecipientsDataProvider>();
+            services.Register<IRecipientsDataProvider, Linq2SqlRecipientsDataProvider>();
+            //services.Register<IRecipientsDataProvider,InMemoryRecipientDataProvider>();
             services.Register(() => new MailSenderDBDataContext());
         }
 

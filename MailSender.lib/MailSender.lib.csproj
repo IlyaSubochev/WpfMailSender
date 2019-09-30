@@ -65,7 +65,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SchedulerClass.cs" />
-    <Compile Include="Services\RecepientsDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemoryRecipientDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IRecipientsDataProvider.cs" />
+    <Compile Include="Services\Linq2Sql\Linq2SqlRecipientsDataProvider.cs" />
     <Compile Include="Views\RecipientsView.xaml.cs">
       <DependentUpon>RecipientsView.xaml</DependentUpon>
     </Compile>
@@ -94,5 +96,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
