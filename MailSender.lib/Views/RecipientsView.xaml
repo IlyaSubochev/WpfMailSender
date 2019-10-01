@@ -26,7 +26,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Adress}"/>
+                <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Address}"/>
             </DataGrid.Columns>
         </DataGrid>
     </DockPanel>

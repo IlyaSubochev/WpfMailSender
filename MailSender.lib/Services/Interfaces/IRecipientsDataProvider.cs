@@ -1,4 +1,5 @@
 ﻿using MailSender.lib.Data.Linq2SQL;
+using MailSender.lib.Entityes.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,5 @@ using System.Threading.Tasks;
 
 namespace MailSender.lib.Services.Interfaces
 {
-    public interface IRecipientsDataProvider
-    {
-        IEnumerable<Recepient> GetAll();
-
-        int Create(Recepient recipient);
-
-        void SaveChanges();
-    }
+    public interface IRecipientsDataProvider : IDataProvider<Recipient> { }
 }

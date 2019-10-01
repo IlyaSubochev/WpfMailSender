@@ -1,15 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using MailSender.lib.Data.Linq2SQL;
-using MailSender.lib.Services;
+using MailSender.lib.Entityes.Base;
 using MailSender.lib.Services.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
 namespace MailSender.ViewModel
@@ -26,9 +19,9 @@ namespace MailSender.ViewModel
             set => Set(ref _WindowTitle, value);
         }
 
-        private ObservableCollection<Recepient> _Recipients  = new ObservableCollection<Recepient>();
+        private ObservableCollection<Recipient> _Recipients  = new ObservableCollection<Recipient>();
          
-        public ObservableCollection<Recepient> Recipients
+        public ObservableCollection<Recipient> Recipients
         {
             get => _Recipients;
             set => Set(ref _Recipients, value);
@@ -58,7 +51,7 @@ namespace MailSender.ViewModel
         }
         public void RefreshData()
         {
-            var recipients = new ObservableCollection<Recepient>();
+            var recipients = new ObservableCollection<Recipient>();
             recipients.Clear();
             foreach (var recipient in _RecipientsProvider.GetAll())
                 recipients.Add(recipient);
@@ -67,8 +60,8 @@ namespace MailSender.ViewModel
 
         #region SelectedRecipient: Recepient - Выбранный получатель
 
-        private Recepient _SelectedRecipient;
-        public Recepient SelectedRecipient
+        private Recipient _SelectedRecipient;
+        public Recipient SelectedRecipient
         {
             get => _SelectedRecipient; 
             set => Set(ref _SelectedRecipient, value); 

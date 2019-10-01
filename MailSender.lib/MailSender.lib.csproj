@@ -54,6 +54,13 @@
     <Compile Include="Data\TestData.cs" />
     <Compile Include="DBClass.cs" />
     <Compile Include="EmailSendServiceClass.cs" />
+    <Compile Include="Entityes\Base\BaseEntity.cs" />
+    <Compile Include="Entityes\Base\HumanEntity.cs" />
+    <Compile Include="Entityes\Base\NameEntity.cs" />
+    <Compile Include="Entityes\Base\Recipient.cs" />
+    <Compile Include="Entityes\Email.cs" />
+    <Compile Include="Entityes\RecipientsList.cs" />
+    <Compile Include="Entityes\SchedullerTask.cs" />
     <Compile Include="Entityes\Sender.cs" />
     <Compile Include="Entityes\Server.cs" />
     <Compile Include="MVVM\LambdaCommand.cs" />
@@ -65,8 +72,21 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SchedulerClass.cs" />
+    <Compile Include="Services\InMemory\InDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemoryEmailsDataProvider.cs" />
     <Compile Include="Services\InMemory\InMemoryRecipientDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemoryRecipientsListDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemorySchedullerTaskDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemorySendersDataProvider.cs" />
+    <Compile Include="Services\InMemory\InMemoryServersDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IEmailsDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IMailSenderService.cs" />
     <Compile Include="Services\Interfaces\IRecipientsDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IRecipientsListDataProvider.cs" />
+    <Compile Include="Services\Interfaces\ISchedullerTasksDataProvider.cs" />
+    <Compile Include="Services\Interfaces\ISendersDataProvider.cs" />
+    <Compile Include="Services\Interfaces\IServersDataProvider.cs" />
     <Compile Include="Services\Linq2Sql\Linq2SqlRecipientsDataProvider.cs" />
     <Compile Include="Views\RecipientsView.xaml.cs">
       <DependentUpon>RecipientsView.xaml</DependentUpon>
