@@ -8,8 +8,12 @@
         xmlns:entityes="clr-namespace:MailSender.lib.Entityes;assembly=MailSender.lib"
         xmlns:db="clr-namespace:MailSender.lib.Data.Linq2SQL;assembly=MailSender.lib"
         xmlns:controls="clr-namespace:MailSender.Controls"
+        xmlns:view="clr-namespace:MailSender.lib.Views;assembly=MailSender.lib"
+        xmlns:view1="clr-namespace:MailSender.View"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="{Binding WindowTitle}" Height="450" Width="800"
+        DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
+        >
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Файл">
@@ -37,16 +41,13 @@
         <TabControl Name="MainTabControl">
             <TabItem Header="Рассылка">
                 <Grid>
-                    <Grid.Resources>
-                        <db:MailSenderDBDataContext x:Key="DataBase"/>
-                    </Grid.Resources>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto">
-                        </RowDefinition>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
                     <ToolBarTray Grid.Row="0">
                         <ToolBar>
-                            <Label MinWidth="85">Отправители</Label>
+                            <!--<Label MinWidth="85">Отправители</Label>
                             <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Senders}"
                                       DisplayMemberPath="Name" SelectedIndex="0"/>
                             <Button ToolTip="Создать">
@@ -57,11 +58,17 @@
                             </Button>
                             <Button ToolTip="Удалить">
                                 <Image Source="Media/remove.png" Height="18"/>
-                            </Button>
-                        </ToolBar>
+                            </Button>-->
+                            <controls:ListController 
+                                PanelName="Отправители"
+                                ViewPropertyPath="Name"
+                                Items="{x:Static data:TestData.Senders}"/>
+                            
 
+                        </ToolBar>
+                       
                         <ToolBar Band="1">
-                            <Label MinWidth="85">Сервера</Label>
+                            <!--<Label MinWidth="85">Сервера</Label>
                             <ComboBox MinWidth="75" MaxWidth="150" ItemsSource="{x:Static data:TestData.Servers}" SelectedIndex="0">
                                 <ComboBox.ItemTemplate>
                                     <DataTemplate DataType="{x:Type entityes:Server }">
@@ -85,7 +92,21 @@
                             <Button ToolTip="Удалить">
                                 <fa:ImageAwesome Height="18" Icon="TrashOutline" Foreground="RosyBrown">
                                 </fa:ImageAwesome>
-                            </Button>
+                            </Button>-->
+                            <controls:ListController 
+                                PanelName="Сервера"
+                                ViewPropertyPath="Name"
+                                Items="{x:Static data:TestData.Servers}">
+                            <controls:ListController.ItemTemplate>
+                                <DataTemplate DataType="{x:Type entityes:Server }">
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name}"/>
+                                            <TextBlock Text="{Binding Adress}" Margin="3,0,0,0" Opacity="0.6"
+                                                       ToolTip="{Binding Port}"/>
+                                        </StackPanel>
+                                </DataTemplate>
+                            </controls:ListController.ItemTemplate>
+                            </controls:ListController>
                         </ToolBar>
                         <ToolBar>
                             <Label MinWidth="85">Перейти в планировщик</Label>
@@ -110,15 +131,16 @@
                             </Button>
                         </ToolBar>
                     </ToolBarTray>
-                    <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding Recepients, Source={StaticResource DataBase}}" Margin="0,63,0,-282"
-                              GridLinesVisibility="Vertical" AlternatingRowBackground="LightGray"
-                              IsReadOnly="True" HeadersVisibility="Column">
-                        <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding Id}"/>
-                            <DataGridTextColumn Header="Имя" Binding="{Binding Name}"/>
-                            <DataGridTextColumn Header="Адрес" Width="*" Binding="{Binding Adress}"/>
-                        </DataGrid.Columns>
-                    </DataGrid>
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="7*"/>
+                            <ColumnDefinition Width="5*"/>
+
+                        </Grid.ColumnDefinitions>
+                        <view:RecipientsView Grid.Column="0" Margin="5"/>
+                        <view1:RecipientsEditor Grid.Column="1" Margin="5"/>
+                    </Grid>
+                    
                 </Grid>
             </TabItem>
             <TabItem Header="Планировщик">
@@ -182,7 +204,9 @@
 
             </TabItem>
             <TabItem Header="Редактор писем"></TabItem>
-            <TabItem Header="Статистика"></TabItem>
+            <TabItem Header="Статистика">
+                
+            </TabItem>
         </TabControl>
     </DockPanel>
 </Window>
