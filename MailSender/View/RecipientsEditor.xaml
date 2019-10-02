@@ -8,9 +8,34 @@
              mc:Ignorable="d" 
              DataContext="{Binding MainWindowModel,Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="400">
-    <DockPanel>
+    <DockPanel Margin="15,0,15,0">
         <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10,7" FontSize="24">Редактор</TextBlock>
-        <Grid ><!--Validation.Error="OnDataValidationError"-->
+        <Grid > <!--Validation.Error="OnDataValidationError"-->
+            <Grid.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Margin" Value="5,4"/>
+                    <Setter Property="Validation.ErrorTemplate">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <DockPanel>
+                                    <TextBlock DockPanel.Dock="Right" 
+                                       Text="!"
+                                       FontSize="25"
+                                       VerticalAlignment="Center"
+                                       Foreground="Red"
+                                       FontWeight="Bold"
+                                       Margin="3,0"
+                                       ToolTipService.BetweenShowDelay="0"
+                                       ToolTip="{Binding AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=AdornedElement}"/>
+                                    <Border Padding="2" BorderBrush="Red" BorderThickness="3">
+                                        <AdornedElementPlaceholder Name="AdornedElement"/>
+                                    </Border>
+                                </DockPanel>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Grid.Resources>
             <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -32,21 +57,7 @@
             NotifyOnValidationError=True, 
             ValidatesOnDataErrors=True}"/>
             <TextBox Grid.Column="1" Grid.Row="2" >
-                <Validation.ErrorTemplate>
-                    <ControlTemplate>
-                        <DockPanel>
-                            <TextBlock DockPanel.Dock="Right" 
-                                       Text="!"
-                                       VerticalAlignment="Center"
-                                       Foreground="Red"
-                                       FontWeight="Bold"
-                                       Margin="3,0"/>
-                            <Border Padding="2" BorderBrush="Red" BorderThickness="3">
-                                <AdornedElementPlaceholder Name="AdornedElement"/>
-                            </Border>
-                        </DockPanel>
-                    </ControlTemplate>
-                </Validation.ErrorTemplate>
+               
                 <TextBox.Text>
                     <Binding Path="SelectedRecipient.Address" NotifyOnValidationError="True">
                         <Binding.ValidationRules>

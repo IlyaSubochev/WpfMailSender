@@ -72,6 +72,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="SchedulerClass.cs" />
+    <Compile Include="ServiceEncoder\StringEncoder.cs" />
     <Compile Include="Services\InMemory\InDataProvider.cs" />
     <Compile Include="Services\InMemory\InMemoryEmailsDataProvider.cs" />
     <Compile Include="Services\InMemory\InMemoryRecipientDataProvider.cs" />
