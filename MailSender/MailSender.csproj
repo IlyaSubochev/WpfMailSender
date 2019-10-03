@@ -118,6 +118,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\RecipientsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="WpfMailSender.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -138,6 +142,9 @@
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\RecipientsEditor.xaml.cs">
       <DependentUpon>RecipientsEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\RecipientsView.xaml.cs">
+      <DependentUpon>RecipientsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="WpfMailSender.xaml.cs">
       <DependentUpon>WpfMailSender.xaml</DependentUpon>

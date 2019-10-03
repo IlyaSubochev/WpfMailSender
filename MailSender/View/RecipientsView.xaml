@@ -4,9 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MailSender.lib.Views"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              mc:Ignorable="d" 
              DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
              d:DesignHeight="450" d:DesignWidth="800">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding RefreshDataCommand}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <DockPanel>
         <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" Margin="10,7" FontSize="24">Получатели писем</TextBlock>
         <DockPanel DockPanel.Dock="Top" Margin="5,0,5,3">

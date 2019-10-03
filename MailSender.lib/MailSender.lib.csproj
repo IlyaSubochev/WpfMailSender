@@ -89,15 +89,6 @@
     <Compile Include="Services\Interfaces\ISendersDataProvider.cs" />
     <Compile Include="Services\Interfaces\IServersDataProvider.cs" />
     <Compile Include="Services\Linq2Sql\Linq2SqlRecipientsDataProvider.cs" />
-    <Compile Include="Views\RecipientsView.xaml.cs">
-      <DependentUpon>RecipientsView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Views\RecipientsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
