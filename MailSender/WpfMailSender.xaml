@@ -8,8 +8,9 @@
         xmlns:entityes="clr-namespace:MailSender.lib.Entityes;assembly=MailSender.lib"
         xmlns:db="clr-namespace:MailSender.lib.Data.Linq2SQL;assembly=MailSender.lib"
         xmlns:controls="clr-namespace:MailSender.Controls"
-        xmlns:view="clr-namespace:MailSender.lib.Views;assembly=MailSender.lib"
-        xmlns:view1="clr-namespace:MailSender.View"
+       
+        xmlns:view="clr-namespace:MailSender.View"
+        xmlns:view1="clr-namespace:MailSender.lib.Views"
         mc:Ignorable="d"
         Title="{Binding WindowTitle}" Height="450" Width="800"
         DataContext="{Binding MainWindowModel, Source={StaticResource Locator}}"
@@ -137,8 +138,9 @@
                             <ColumnDefinition Width="5*"/>
 
                         </Grid.ColumnDefinitions>
-                        <view:RecipientsView Grid.Column="0" Margin="5"/>
-                        <view1:RecipientsEditor Grid.Column="1" Margin="5"/>
+                        <view1:RecipientsView Grid.Column="0" Margin="5"/>
+                        
+                        <view:RecipientsEditor Grid.Column="1" Margin="5"/>
                     </Grid>
                     
                 </Grid>
