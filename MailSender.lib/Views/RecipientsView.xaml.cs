@@ -10,25 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WpfTestMailSender
+namespace MailSender.lib.Views
 {
-
-    public partial class WindowEr : Window
+    /// <summary>
+    /// Логика взаимодействия для RecipientsView.xaml
+    /// </summary>
+    public partial class RecipientsView : UserControl
     {
-        public WindowEr()
+        public RecipientsView()
         {
             InitializeComponent();
-        }
-        public void ErrorMessage(string message)
-        {
-            ErLabel.Content = message;
-            ErLabel.FontSize = 12;           
-        }
-        private void BtnErOk_Click(object sender, RoutedEventArgs e)
-        {
-            Close();
         }
     }
 }

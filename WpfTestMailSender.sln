@@ -1,11 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.852
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTestMailSender", "WpfTestMailSender\WpfTestMailSender.csproj", "{1F60A255-11FC-42E6-A2D0-ED3E6EA21BDD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender", "MailSender\MailSender.csproj", "{076D85ED-7BD6-4C6C-858C-EB0446B8CC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib", "MailSender.lib\MailSender.lib.csproj", "{F263C844-33A6-4053-B85B-2EE5C72CE472}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{301A63B5-EFAC-4C41-9E5F-B9EF69B8D9DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MailSender.lib.Tests", "Test\MailSender.lib.Tests\MailSender.lib.Tests.csproj", "{526235A1-B7AA-46FC-8E8D-16DD77A474FC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,20 @@ Global
 		{076D85ED-7BD6-4C6C-858C-EB0446B8CC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{076D85ED-7BD6-4C6C-858C-EB0446B8CC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{076D85ED-7BD6-4C6C-858C-EB0446B8CC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F263C844-33A6-4053-B85B-2EE5C72CE472}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F263C844-33A6-4053-B85B-2EE5C72CE472}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F263C844-33A6-4053-B85B-2EE5C72CE472}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F263C844-33A6-4053-B85B-2EE5C72CE472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{526235A1-B7AA-46FC-8E8D-16DD77A474FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{526235A1-B7AA-46FC-8E8D-16DD77A474FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{526235A1-B7AA-46FC-8E8D-16DD77A474FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{526235A1-B7AA-46FC-8E8D-16DD77A474FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{526235A1-B7AA-46FC-8E8D-16DD77A474FC} = {301A63B5-EFAC-4C41-9E5F-B9EF69B8D9DF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {075089A1-81E3-4D2F-9C1C-B52FC1B8EC0C}
